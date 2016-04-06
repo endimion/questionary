@@ -25,7 +25,7 @@ app.use(session({secret:'shhhh'}));
 app.use(bodyParser.json()); //to support JSON-encoded bodues
 app.use(bodyParser.urlencoded({extended:true})); //to support URL-encoded bodies
 //initilize app to use static files
-app.use(express.static(__dirname + '/static')); //this allows us to use files in the folder static
+//app.use(express.static(__dirname + '/static')); //this allows us to use files in the folder static
 
 
 
@@ -34,20 +34,6 @@ app.get('/*', function (req, res) {
   //res.send('Hello World!');
   pathname = url.parse(req.url).pathname;
   //console.log(pathname);
-  //  console.log(typeof(pathname));
-  path_split = pathname.split('/');
-  //console.log(path_split);
-  //console.log(path_split.length);
-
-  var classId = '1';
-  if(path_split.length >= 3){
-	pathname = "/" + path_split[1];
-	//console.log("Pathname " +pathname);
-        classId = path_split[2];
-        //console.log("ClassId " + classId);
-  }
-  //console.log(pathname);
-  console.log(classId);
 
   if(req.session.qId == undefined){
   	req.session.qId ='5';
@@ -55,7 +41,7 @@ app.get('/*', function (req, res) {
 	console.log("session qid already set");
   }
 
-  router.route(handle,pathname,res,req,classId);
+  router.route(handle,pathname,res,req);
 });
 
 

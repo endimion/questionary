@@ -3,12 +3,13 @@ var mysql = require('mysql');
 function questionsView(request,question){
 
 	return '<html>'+
-								        '<head>'+
-                '<meta http-equiv="Content-Type" content="text/html; '+
-                'charset=UTF-8" />'+
-        '</head>'+
+		'<head>'+
+		 '<link rel="stylesheet" type="text/css" href="style.css">'+
+                  '<meta http-equiv="Content-Type" content="text/html; '+
+                   'charset=UTF-8"/>'+
+	        '</head>'+
         '<body>'+
-		'<div>Question= ' + question+' </div>'
+		'<div class="question"> Ερώτηση: </br> </br> ' + question+' </div>'
 		+
                 '<form action="/upload" method="post">'+
                         '<textarea name="text" rows="20" cols="60"></textarea>'+
@@ -31,12 +32,13 @@ function answerView(request,ans){
 
 
         return '<html>'+
-                                                                        '<head>'+
+                '<head>'+
+		 '<link rel="stylesheet" type="text/css" href="style.css">'+
                 '<meta http-equiv="Content-Type" content="text/html; '+
                 'charset=UTF-8" />'+
         '</head>'+
         '<body>'+
-                '<div> Answers = <ul> ' + anString+' </ul></div>'
+                '<div> Answers = <ul> ' + ans+' </ul></div>'
         '</body>' +
         '</html>';
 
